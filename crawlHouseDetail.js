@@ -1,8 +1,7 @@
 var crawler = require("./crawler"),
     parseHouseDetail = require("./parseHouseDetail");
 
-//var detailUrl = process.argv[2] || "http://dl.focus.cn/votehouse/301069/xiangqing/";
-var detailUrl = process.argv[2] || "http://dl.focus.cn/votehouse/301088/xiangqing/"
+var detailUrl = process.argv[2] || "http://dl.focus.cn/votehouse/301069/xiangqing/";
 
 //todo参数问题
 if(detailUrl) {
