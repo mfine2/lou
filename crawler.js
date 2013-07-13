@@ -10,9 +10,9 @@ var http = require("http"),
 
 function getUrl (options, callback) {
     var defaults = {
-        url: "http://cawler.try4.cn",
+        url: "http://lou.try4.org",
         encoding: "gb2312",
-        headers: {},
+        headers: {"Cookie": "PHPSESSID=bd798ceac8f5c295ac08bc38ddf86b04;"},
         reqTimeout: 5000,
         resTimeout: 5000 
     };
@@ -20,11 +20,10 @@ function getUrl (options, callback) {
     options = utils.merge(defaults, options);
 
     var urlInfo = parse(options.url),
-        urlPath = urlInfo.urlPathname + (urlInfo.search || ""),
         reqOpt = { 
             host: urlInfo.hostname,
             port: urlInfo.port || 80,
-            urlPath: urlPath,
+            path: urlInfo.path,
             headers: options.headers,
             method: "GET"
         };
@@ -37,6 +36,8 @@ function getUrl (options, callback) {
         req.abort();
         callback(new Error("Request Timeout"));
     }, options.reqTimeout);
+
+    console.log("crawling \n" + options.url);
 
     req = http.request(reqOpt, function(res) {
         clearTimeout(reqTimeout);

@@ -14,13 +14,15 @@ function crawl(pageUrl) {
 
     crawler.getUrl({"url": pageUrl}, function(err, res) {
         if(!err) {
-            var list = parseCityPageList.parse(res.body, baseUrl);
-            //todo
+            var json = parseCityPageList.parse(res.body, baseUrl);
+
+            /*
             var buf = require("fs").readFileSync("./html/firstpage.html");
             var body = require("iconv-lite").decode(buf, "gb2312");
-            list = parseCityPageList.parse(body, baseUrl);
-            //todo end
-            require("fs").writeFile("./json/page_list.json", JSON.stringify(list), function(err){
+            json = parseCityPageList.parse(body, baseUrl);
+            */
+
+            require("fs").writeFile("./json/page_list.json", JSON.stringify(json), function(err){
                 if(err) throw err;
             });
         } else {

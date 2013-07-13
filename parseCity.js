@@ -22,8 +22,8 @@ function parse(body) {
         var cityArr = [];
         var areaObj = {};
         cities.each(function(i, elem) {
-            var $elem = $(elem);
             var trim = utils.trim;
+            var $elem = $(elem);
             var obj = {};
             var name = trim($elem.text() || "");
             var href = trim($elem.attr("href") || "");

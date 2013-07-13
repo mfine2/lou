@@ -16,11 +16,11 @@ function crawl(cityUrl) {
         if(!err) {
             var totalNum = parseCityPageUrls.parse(res.body);
 
-            //todo
+            /*
             var buf = require("fs").readFileSync("./html/firstpage.html");
             var body = require("iconv-lite").decode(buf, "gb2312");
             totalNum = parseCityPageUrls.parse(body);
-            //todo end
+            */
             
             for(var i = 1; i <= totalNum; i++) {
                 var pageUrl = getFullPath(cityUrl, i);
